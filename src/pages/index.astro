@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Class Action Settlement Calculator | classactionsettlementcalc.com';
+const description = 'Estimate your individual share of a class action settlement. Enter total settlement amount, class size, claim type, and whether you are a named plaintiff. Free, informational.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Class Action Settlement Calculator</h1>
+  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
+  <p>Class action settlements distribute funds to thousands or millions of class members according to a plan of allocation approved by the court. Individual payouts depend on total settlement size, class size, the allocation formula, claim type, and whether you are a named class representative. This calculator provides a rough estimate of individual recovery.</p>
+  <h2>Run the estimate</h2>
+  <form id="calc" novalidate>
+    <label for="settlement">Total settlement amount (USD)</label>
+    <input id="settlement" type="number" value="5000000" min="0" />
+    <label for="class-size">Estimated class size (number of members)</label>
+    <input id="class-size" type="number" value="50000" min="1" />
+    <label for="claim-type">Claim type / allocation method</label>
+    <select id="claim-type">
+      <option value="equal">Equal distribution (flat per-member payment)</option>
+      <option value="pro-rata">Pro-rata by individual harm (proportional)</option>
+      <option value="tiered">Tiered — high-harm subclass</option>
+      <option value="coupon">Coupon or voucher settlement</option>
+    </select>
+    <label for="named">Are you a named plaintiff / class representative?</label>
+    <select id="named">
+      <option value="no">No — ordinary class member</option>
+      <option value="yes">Yes — named plaintiff seeking incentive award</option>
+    </select>
+    <label for="claims-rate">Expected claims filing rate (%)</label>
+    <input id="claims-rate" type="number" value="5" min="1" max="100" />
+    <button type="submit">Estimate my share</button>
+  </form>
+  <p id="result" aria-live="polite"></p>
+  <h2>How class action distributions work</h2>
+  <p>Courts approve a plan of allocation specifying how the net settlement fund (after attorneys&rsquo; fees, costs, and administration) is divided. Common approaches: equal shares per claiming member, pro-rata based on documented individual harm, tiered payments based on injury severity, and &mdash; in some consumer cases &mdash; cy pres distributions to charities when individual claims are too small to process economically.</p>
+  <p>Attorney fees typically consume 25&ndash;33% of the fund. Administration costs (notice, claims processing) add 5&ndash;15%. Named plaintiffs may receive incentive awards of $5,000&ndash;$25,000 for their role in representing the class.</p>
+  <h2>Why low claims rates matter</h2>
+  <p>Most class action settlements see claims rates of 1&ndash;10%. When fewer members file claims, the net fund is divided among fewer claimants &mdash; each share grows. A 5% claims rate on a 50,000-member class means roughly 2,500 claimants sharing the net fund.</p>
+  <h2>Where to learn more</h2>
+  <p>See <a href="/guides/how-class-action-settlements-work">how class action settlements work</a>, <a href="/guides/types-of-class-action-cases">types of class action cases</a>, <a href="/guides/filing-a-class-action-claim">filing a class action claim</a>, and <a href="/guides/class-action-misconceptions">common class action misconceptions</a>.</p>
+  <script>
+    document.getElementById('calc').addEventListener('submit', e => {
+      e.preventDefault();
+      const settlement = parseFloat(document.getElementById('settlement').value)||5000000;
+      const classSize = parseFloat(document.getElementById('class-size').value)||50000;
+      const claimType = document.getElementById('claim-type').value;
+      const named = document.getElementById('named').value==='yes';
+      const claimsRate = parseFloat(document.getElementById('claims-rate').value)||5;
+      const netFund = settlement * 0.67; // ~33% fees+costs
+      const activeClaims = Math.max(1, Math.round(classSize * claimsRate / 100));
+      let base = netFund / activeClaims;
+      if (claimType==='tiered') base *= 2.5;
+      if (claimType==='coupon') base *= 0.3;
+      const incentive = named ? Math.min(25000, settlement * 0.002) : 0;
+      const total = base + incentive;
+      const fmt = n=>'$'+Math.round(n).toLocaleString();
+      document.getElementById('result').innerHTML =
+        `<strong>Estimated share: ${fmt(total*0.6)} &ndash; ${fmt(total*1.4)}</strong><br>Net fund: ${fmt(netFund)} &bull; Active claimants: ~${activeClaims.toLocaleString()} &bull; Base per claim: ${fmt(base)}${named ? ` &bull; Incentive award: ${fmt(incentive)}`:''}<br><em>Actual distribution depends on court-approved allocation plan. Attorney fees and administration costs reduce the gross settlement.</em>`;
+    });
+  </script>
+</BaseLayout>
