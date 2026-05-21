@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Methodology | classactionsettlementcalc.com';
+const description = 'How the class action settlement calculator works: net fund calculation, claims rates, allocation methods, and incentive awards.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Methodology &mdash; How We Estimate Settlement Shares</h1>
+  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
+  <h2>Net settlement fund</h2>
+  <p>Gross settlement minus attorney fees (assumed 33%) and administration costs (assumed 5&ndash;8%). The net fund is what&rsquo;s actually distributed to class members. We use a 33% blended deduction for simplicity; real deductions vary.</p>
+  <h2>Active claimants</h2>
+  <p>Total class size &times; claims filing rate. Consumer class actions typically see 1&ndash;10% filing rates; data breach cases 1&ndash;5%; securities cases 30&ndash;60% (because institutional investors file systematically). A higher claims rate means more claimants sharing the fund &mdash; lower per-person recovery.</p>
+  <h2>Allocation multipliers</h2>
+  <p>Equal distribution: 1.0&times; base. Pro-rata by harm: base is the calculator output (assumes user is an average-harm claimant). Tiered / high-harm subclass: 2.5&times; base (representing placement in a higher-damage tier). Coupon settlement: 0.3&times; base (reflecting typical coupon redemption rates and discounted cash value).</p>
+  <h2>Incentive awards for named plaintiffs</h2>
+  <p>Courts typically approve incentive awards of $5,000&ndash;$25,000 for named class representatives. The calculator caps the estimate at $25,000 and scales by 0.2% of the gross settlement, consistent with published data on approved incentive awards.</p>
+  <h2>Range</h2>
+  <p>Output is &plusmn;40% of the point estimate. Class action distribution math is highly sensitive to claims rates and allocation plan details that are unknown before final court approval.</p>
+</BaseLayout>
