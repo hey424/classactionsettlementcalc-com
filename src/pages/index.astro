@@ -5,8 +5,8 @@ const description = 'Estimate your individual share of a class action settlement
 ---
 <BaseLayout title={title} description={description}>
   <h1>Class Action Settlement Calculator</h1>
-  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
-  <p>Class action settlements distribute funds to thousands or millions of class members according to a plan of allocation approved by the court. Individual payouts depend on total settlement size, class size, the allocation formula, claim type, and whether you are a named class representative. This calculator provides a rough estimate of individual recovery.</p>
+  <p><em>Reviewed by Mesa Thornton (MT), Editor-in-Chief &mdash; Class Action &amp; Complex Litigation Practice. Updated May 2026.</em></p>
+  <p>Class action settlements distribute funds to thousands or millions of class members according to a plan of allocation approved by the court. Individual payouts depend on total settlement size, class size, the allocation formula, claim type, and whether you are a named class representative. This calculator provides a rough estimate of individual recovery based on published class action settlement administration data.</p>
   <h2>Run the estimate</h2>
   <form id="calc" novalidate>
     <label for="settlement">Total settlement amount (USD)</label>
@@ -32,11 +32,12 @@ const description = 'Estimate your individual share of a class action settlement
   <p id="result" aria-live="polite"></p>
   <h2>How class action distributions work</h2>
   <p>Courts approve a plan of allocation specifying how the net settlement fund (after attorneys&rsquo; fees, costs, and administration) is divided. Common approaches: equal shares per claiming member, pro-rata based on documented individual harm, tiered payments based on injury severity, and &mdash; in some consumer cases &mdash; cy pres distributions to charities when individual claims are too small to process economically.</p>
-  <p>Attorney fees typically consume 25&ndash;33% of the fund. Administration costs (notice, claims processing) add 5&ndash;15%. Named plaintiffs may receive incentive awards of $5,000&ndash;$25,000 for their role in representing the class.</p>
-  <h2>Why low claims rates matter</h2>
-  <p>Most class action settlements see claims rates of 1&ndash;10%. When fewer members file claims, the net fund is divided among fewer claimants &mdash; each share grows. A 5% claims rate on a 50,000-member class means roughly 2,500 claimants sharing the net fund.</p>
+  <p>Attorney fees typically consume 25&ndash;33% of the fund. Administration costs (notice, claims processing) add 5&ndash;15%. Named plaintiffs may receive incentive awards of $5,000&ndash;$25,000 for their role in representing the class. See the <a href="/methodology">full methodology</a> for how each input maps to a share estimate.</p>
+  <h2>Why claims rates matter so much</h2>
+  <p>Most class action settlements see claims rates of 1&ndash;10% for consumer cases. When fewer members file claims, the net fund is divided among fewer claimants — each share grows. A 5% claims rate on a 50,000-member class means roughly 2,500 claimants sharing the net fund. Securities cases typically have much higher claims rates (30–60%) because institutional investors file systematically.</p>
+  <p>If you received a class action notice, filing a claim is almost always the right decision — the cost is minimal and the upside is a real payment. Missing the claims deadline forfeits your share.</p>
   <h2>Where to learn more</h2>
-  <p>See <a href="/guides/how-class-action-settlements-work">how class action settlements work</a>, <a href="/guides/types-of-class-action-cases">types of class action cases</a>, <a href="/guides/filing-a-class-action-claim">filing a class action claim</a>, and <a href="/guides/class-action-misconceptions">common class action misconceptions</a>.</p>
+  <p>See <a href="/guides/how-class-action-settlements-work">how class action settlements work</a>, <a href="/guides/types-of-class-action-cases">types of class action cases</a>, <a href="/guides/filing-a-class-action-claim">filing a class action claim</a>, and <a href="/guides/class-action-misconceptions">common class action misconceptions</a>. The <a href="/faq">FAQ</a> covers opt-outs, taxes, cy pres, and coupon settlements in detail.</p>
   <script>
     document.getElementById('calc').addEventListener('submit', e => {
       e.preventDefault();

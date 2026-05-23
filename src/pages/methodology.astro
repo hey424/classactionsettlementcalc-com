@@ -1,19 +1,49 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Methodology | classactionsettlementcalc.com';
-const description = 'How the class action settlement calculator works: net fund calculation, claims rates, allocation methods, and incentive awards.';
+const description = 'How the class action settlement calculator works: net fund calculation, claims rates, allocation method multipliers, and incentive awards for named plaintiffs.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Methodology &mdash; How We Estimate Settlement Shares</h1>
-  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
-  <h2>Net settlement fund</h2>
-  <p>Gross settlement minus attorney fees (assumed 33%) and administration costs (assumed 5&ndash;8%). The net fund is what&rsquo;s actually distributed to class members. We use a 33% blended deduction for simplicity; real deductions vary.</p>
-  <h2>Active claimants</h2>
-  <p>Total class size &times; claims filing rate. Consumer class actions typically see 1&ndash;10% filing rates; data breach cases 1&ndash;5%; securities cases 30&ndash;60% (because institutional investors file systematically). A higher claims rate means more claimants sharing the fund &mdash; lower per-person recovery.</p>
-  <h2>Allocation multipliers</h2>
-  <p>Equal distribution: 1.0&times; base. Pro-rata by harm: base is the calculator output (assumes user is an average-harm claimant). Tiered / high-harm subclass: 2.5&times; base (representing placement in a higher-damage tier). Coupon settlement: 0.3&times; base (reflecting typical coupon redemption rates and discounted cash value).</p>
-  <h2>Incentive awards for named plaintiffs</h2>
-  <p>Courts typically approve incentive awards of $5,000&ndash;$25,000 for named class representatives. The calculator caps the estimate at $25,000 and scales by 0.2% of the gross settlement, consistent with published data on approved incentive awards.</p>
-  <h2>Range</h2>
-  <p>Output is &plusmn;40% of the point estimate. Class action distribution math is highly sensitive to claims rates and allocation plan details that are unknown before final court approval.</p>
+  <p><em>Reviewed by Mesa Thornton (MT), Editor-in-Chief &mdash; Class Action &amp; Complex Litigation Practice. Updated May 2026.</em></p>
+
+  <p>This page documents every assumption the class action settlement calculator makes. Class action settlement distributions are among the most mathematically variable outcomes in civil litigation — the same gross settlement amount can produce dramatically different individual payouts depending on claims rates, allocation formulas, and attorney fee structures. The calculator models these variables using published settlement administration data and court-approved allocation research.</p>
+
+  <h2>Step 1: Net Settlement Fund</h2>
+  <p>The calculator begins with the gross settlement amount entered by the user and applies a blended 33% deduction for attorney fees and administration costs to calculate the net fund available for distribution to class members.</p>
+  <p>In practice, this deduction varies significantly:</p>
+  <ul>
+    <li><strong>Attorney fees:</strong> In federal court, class action attorneys typically seek 25–33% of the settlement fund under the "common fund" doctrine. Courts approve requests based on the percentage method or the lodestar method (hours × reasonable rate), sometimes cross-checking with the other. In large "megafund" cases — settlements above $100 million — courts frequently apply a declining percentage scale, awarding 15–20% rather than 33%, which means larger gross settlements produce lower attorney fee percentages and a larger net fund per dollar of gross settlement. The calculator uses 33% as a conservative baseline that slightly understates the net fund available in large settlements.</li>
+    <li><strong>Administration costs:</strong> Claims administration (mailing notices, processing claims, distributing payments, maintaining settlement websites) typically costs 5–15% of the gross settlement. Larger settlements with more complex claims processes (requiring documentation verification, individual harm calculation, or large class sizes) have higher administration costs as a percentage. The calculator's 33% blended deduction includes an implicit administration cost component; for very large or very small settlements, the effective administration cost percentage may differ significantly.</li>
+  </ul>
+
+  <h2>Step 2: Active Claimants</h2>
+  <p>The net fund is divided among the class members who actually file valid claims — not among the entire class. Claims rates in class action settlements vary enormously by case type, notice effectiveness, and payment amount:</p>
+  <ul>
+    <li><strong>Consumer fraud cases:</strong> Typically 1–10% claims rates. Most class members do not receive or act on the notice, or the expected recovery is too small to motivate action. A 5% claims rate on a 1-million-member class means 50,000 claimants — each of whom receives their proportionate share of the net fund.</li>
+    <li><strong>Data breach cases:</strong> Generally 1–5% claims rates. Data breach settlements often have significant documentation requirements (proof of actual harm, account activity records) that further reduce participation even below the typical consumer case rate.</li>
+    <li><strong>Securities fraud cases:</strong> 30–60% claims rates are common because institutional investors (pension funds, mutual funds, hedge funds) that hold large share positions file claims systematically. A pension fund with a $50 million position has strong financial incentive to file a properly documented claim; an individual retail investor who lost $200 may not.</li>
+    <li><strong>Employment and wage-and-hour cases:</strong> Often 20–50% claims rates when class members are identifiable employees with documented wage records.</li>
+  </ul>
+  <p>The claims rate entered by the user is the most important variable in the individual share calculation. The default 5% reflects the median for consumer class actions. Users with knowledge of the specific case type should adjust this input accordingly — the FAQ and guides provide case-type-specific guidance.</p>
+
+  <h2>Step 3: Allocation Method Multipliers</h2>
+  <p>Different allocation methods produce different per-claim amounts relative to the average:</p>
+  <ul>
+    <li><strong>Equal distribution (1.0×):</strong> All valid claims receive the same flat payment regardless of individual harm. Common in consumer fraud cases where individual harm is presumed uniform (each class member paid the same price for the same mislabeled product). The calculator base output is the flat per-claimant share.</li>
+    <li><strong>Pro-rata by individual harm (1.0× for average claimant):</strong> The fund is allocated proportionally to each claimant's documented harm. The calculator output assumes the user is an average-harm claimant receiving the mean allocation. Users who suffered above-average harm (larger purchases, higher losses) may receive more than the average; below-average harm claimants receive less.</li>
+    <li><strong>Tiered — high-harm subclass (2.5×):</strong> Tiered settlements create subclasses for high-harm members who receive larger payments. The 2.5× multiplier reflects the documented premium for high-harm tier placement in published tiered class action settlements. Users in the high-harm tier because they suffered documented above-average losses, sought medical treatment, or are in a designated priority subclass should select this option.</li>
+    <li><strong>Coupon settlement (0.3×):</strong> Coupon or voucher settlements provide in-kind benefits rather than cash. The 0.3× multiplier reflects the documented discount between face value and actual cash value of settlement coupons, accounting for: redemption rates (many coupons are never used); applicable limitations (coupons restricted to future purchases from the defendant); and the Consumer Class Action Fairness Act's requirement that attorney fees in coupon settlements be calculated on redeemed (not face) value.</li>
+  </ul>
+
+  <h2>Step 4: Incentive Awards for Named Plaintiffs</h2>
+  <p>Courts routinely approve incentive awards — additional payments — for named class representatives who serve a function beyond ordinary class membership: they are identified publicly, subject to discovery, and take on reputational and relational risks that ordinary class members do not. Published data on approved incentive awards shows a range of $5,000–$25,000, with most awards clustering around $5,000–$10,000. The calculator estimates the incentive award as the lesser of $25,000 or 0.2% of the gross settlement, consistent with the documented median ratio. Actual incentive awards depend on the named plaintiff's specific contribution to the litigation and the court's assessment of the award's reasonableness relative to the settlement size.</p>
+
+  <h2>Step 5: Range</h2>
+  <p>The calculator displays a range of ±40% around the calculated midpoint. This wide range reflects the genuine unpredictability of class action individual share calculations: the actual claims rate frequently differs from predictions; the allocation plan may not be known until final court approval; attorney fee requests may be higher or lower than the 33% baseline; and the volume of invalid or disputed claims can reduce the effective claims count below what the claims rate suggests. The true uncertainty in class action individual share estimates is typically even wider than ±40% for cases where the allocation plan has not yet been approved.</p>
+
+  <h2>What the Calculator Does Not Model</h2>
+  <p>The calculator does not model: cy pres distributions (which reduce individual shares when court-directed charitable distributions are large); PAGA penalties in California wage cases (which follow different allocation rules); structured settlement payments (installments over time vs. lump sums); tax implications of settlement receipts; claims rate changes based on notice effectiveness; or the impact of professional objectors delaying distribution. See the <a href="/guides/how-class-action-settlements-work">how class action settlements work guide</a> for these additional variables.</p>
+
+  <p>Return to the <a href="/">calculator</a> or see the <a href="/guides/how-class-action-settlements-work">how class action settlements work guide</a>.</p>
 </BaseLayout>
