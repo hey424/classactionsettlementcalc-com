@@ -1,30 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'About classactionsettlementcalc.com | Free Class Action Settlement Calculator';
-const description = 'About classactionsettlementcalc.com — a free class action law resource covering settlement distributions, claims rates, allocation methods, and individual share estimation.';
+const description = 'About classactionsettlementcalc.com — how we calculate individual class action settlement shares, our editorial standards, and how the site is funded.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>About classactionsettlementcalc.com</h1>
-  <p>classactionsettlementcalc.com is a free legal reference resource maintained by The Click Lab. Our calculator and editorial guides help class action members understand how settlement distributions are calculated, what factors determine individual share size, and how to maximize recovery through the claims process.</p>
+  <p>classactionsettlementcalc.com is a free class action resource maintained by The Click Lab. Our settlement calculator and guides help class members figure out roughly what their individual payout might look like once a settlement is distributed &mdash; and just as often, help them understand why a headline settlement number almost never matches what actually lands in a claimant's account. The Site is built for someone who received a class action notice or found their name connected to a settled case and wants a plain-English starting point before deciding whether to file a claim, opt out, or ignore it.</p>
 
-  <h2>What This Site Is</h2>
-  <p>Class action settlements are consistently misunderstood by the people they are designed to benefit. Headline settlement amounts — "$500 million settlement reached" — almost never translate into meaningful individual payouts. After attorney fees, administration costs, division among thousands or millions of class members, and a claims filing rate that typically captures only 1–10% of potential claimants, individual checks of $5–$50 are the norm in consumer cases. Understanding this before expecting a windfall — and understanding what factors actually determine your share — is the gap this site addresses.</p>
-  <p>The calculator takes the inputs that actually drive individual settlement shares — gross settlement amount, class size, claims rate, allocation method, and named plaintiff status — and models the distribution to produce a concrete range estimate. The guides explain the full claims process, the approval timeline, the opt-out decision, and the legal structures underlying different class action types.</p>
+  <h2>What we do</h2>
+  <p>We translate settlement administration mechanics &mdash; attorney fee awards, administration costs, claims filing rates, and plans of allocation &mdash; into a plain-English calculator and guides. Every page is reviewed by our <a href="/editorial/">editorial team</a> with citations to published settlement administration data and court-approved allocation plans. The calculator takes the gross settlement amount, estimated class size, claims filing rate, allocation method, and named-plaintiff status, and models the net fund and per-claimant share those inputs typically produce.</p>
 
-  <h2>What We Cover</h2>
-  <ul>
-    <li><strong>The calculator:</strong> A distribution estimation tool modeling the net fund after fees and costs, active claimants based on the claims rate, and the allocation method (equal distribution, pro-rata, tiered, or coupon).</li>
-    <li><strong>Settlement process:</strong> How class action settlements are approved — from preliminary approval through the fairness hearing, appeals, and final distribution — and what causes delays.</li>
-    <li><strong>Case types:</strong> Consumer fraud, data breach (including BIPA), securities fraud, employment and wage-and-hour, and product liability — with the specific settlement dynamics of each.</li>
-    <li><strong>Claims guidance:</strong> How to find settlements you qualify for, complete claim forms correctly, and track your payment.</li>
-    <li><strong>Opt-out analysis:</strong> When opting out and suing individually makes sense versus participating in the class settlement.</li>
-  </ul>
+  <h2>Who this calculator is for</h2>
+  <p>Most visitors fall into one of a few groups: class members who received a settlement notice or postcard and want to know what a realistic payout range looks like before deciding whether filing a claim is worth their time; people trying to understand why a "$500 million settlement" produced a $12 check; class members weighing whether opting out and pursuing an individual claim could ever make sense; and named plaintiffs curious about how an incentive award factors into the total. We built the Site around these use cases, which is why every guide leads with a plain-English answer before it gets into allocation-plan detail.</p>
 
-  <h2>What We Don't Do</h2>
-  <p>We do not provide legal advice and do not create an attorney-client relationship. The calculator produces educational estimates; it cannot predict how the court will approve the allocation plan, what the final claims rate will be, or whether professional objectors will delay distribution. We do not accept sponsored content or referral arrangements with law firms.</p>
+  <h2>How the estimate is built</h2>
+  <p>The full mechanics &mdash; how the net fund is derived after attorney fees and administration costs, how claims filing rates vary by case type, and how equal, pro-rata, tiered, and coupon allocation methods change an individual share &mdash; are documented on our <a href="/methodology/">methodology page</a>. At a high level: the calculator reduces the gross settlement by a typical fee-and-cost percentage, divides the remaining net fund by the number of class members expected to actually file a claim at the given claims rate, and adjusts the result for the selected allocation method and named-plaintiff status.</p>
+
+  <h2>What we don&rsquo;t do</h2>
+  <p>We don't provide legal advice, and nothing on this Site creates an attorney-client relationship. What you personally will receive from a specific settlement depends on the court-approved plan of allocation, the actual claims rate once the filing deadline passes, and case-specific facts our calculator can't see &mdash; variables that routinely move a real payout above or below a generic estimate. We also don't evaluate individual claims, tell you whether you qualify for a specific settlement, estimate what a named case will actually pay, or file claims on anyone's behalf. For questions about a specific settlement, the claims administrator named in your class notice is the authoritative source; see our <a href="/contact/">contact page</a> for more on when that's the right place to go instead of us.</p>
+
+  <h2>Editorial standards</h2>
+  <p>Every guide and reference page is written from primary sources &mdash; published settlement administration data, court orders approving plans of allocation, and procedural rules governing class actions &mdash; and reviewed before publication. We don't publish thin content: each page is meant to answer a specific question a class member would actually ask, with enough detail to be useful when a notice shows up in the mail. Our full editorial workflow, contributor backgrounds, and sourcing policy are on the <a href="/editorial/">editorial team page</a>.</p>
+
+  <h2>How we make money</h2>
+  <p>Display advertising via Google AdSense. We don't sell reader data or accept paid placements, and no law firm or settlement administrator pays for placement or a favorable mention anywhere on the Site. See our <a href="/privacy/">privacy policy</a> for details on data handling.</p>
 
   <h2>Contact</h2>
-  <p>For corrections or factual feedback, see our <a href="/contact">contact page</a> or email <a href="mailto:hey@theclicklab.agency">hey@theclicklab.agency</a>.</p>
-
-  <p>Return to the <a href="/">calculator</a> or see the <a href="/editorial">editorial team</a>.</p>
+  <p>Questions, corrections, or feedback: see our <a href="/contact/">contact page</a>.</p>
 </BaseLayout>
