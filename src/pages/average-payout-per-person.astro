@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Average Class Action Payout Per Person: What the Data Shows | classactionsettlementcalc.com';
+const description = 'How much does a class action pay per person? What an FTC study of 149 settlements found, the formula that sets your share, worked examples, and how to find your case’s actual payout.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Average Class Action Payout Per Person</h1>
+  <p><em>Published by The Click Lab Agency LLC. Last reviewed September 2026. Not legal advice.</em></p>
+
+  <p>There is no single &ldquo;average&rdquo; class action payout that means much, because two settlements with the same headline number can pay individual class members wildly different amounts. What sets your share is simple arithmetic: how much money is left after fees and costs, and how many people file valid claims. The best published data on real payouts comes from a Federal Trade Commission staff study, and it shows most consumer class members receive tens of dollars, not thousands.</p>
+
+  <h2>What the FTC study found</h2>
+  <p>In 2019 the FTC published an analysis of 149 consumer class action settlements run by settlement administrators. Its main findings:</p>
+  <div style="overflow-x:auto">
+  <table>
+    <tbody>
+      <tr><th>Median payment to claimants</th><td>In half of the settlements, the median claimant received $69 or more; in a quarter of them, $200 or more.</td></tr>
+      <tr><th>Claims rate (share of class members who filed)</th><td>Median 9%; weighted average 4%</td></tr>
+      <tr><th>Claims rate by type of notice</th><td>Mailed notice packets: median 16%. Postcards: median about 6&ndash;7%. Email: median 2%.</td></tr>
+      <tr><th>Settlements requiring a claim form</th><td>About 70% of the sample; the rest paid automatically or used hybrid structures</td></tr>
+      <tr><th>Checks actually cashed</th><td>Median 94% in cases that required a claim, rising as payment size rose</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:.9rem;color:#555">Source: Federal Trade Commission staff report, &ldquo;Consumers and Class Actions: A Retrospective and Analysis of Settlement Campaigns&rdquo; (September 2019). The study covered consumer cases; securities, employment, and mass-tort settlements follow different patterns.</p>
+
+  <h2>The formula behind your share</h2>
+  <p>For the most common structure &mdash; a fixed common fund divided among valid claims &mdash; your payment works out to:</p>
+  <p><strong>(settlement amount &minus; attorney fees &minus; litigation costs &minus; notice and administration costs) &divide; number of valid claims</strong></p>
+  <p>If the plan of allocation gives larger shares to people with bigger documented losses, your payment is your share of the net fund in proportion to your loss rather than an equal split. Your settlement notice or the settlement website states which method applies. The <a href="/">calculator</a> runs this arithmetic with your numbers.</p>
+
+  <h2>Worked examples</h2>
+  <h3>Example 1 &mdash; A large consumer case</h3>
+  <p>A $20 million settlement covers 4 million customers. Fees are 25% ($5 million), costs and administration are $1.5 million, leaving $13.5 million. At the FTC study&rsquo;s weighted-average claims rate of 4%, 160,000 people file, and each receives about $84. At 2% (typical of email-only notice), each receives about $169.</p>
+  <h3>Example 2 &mdash; A small, well-defined class</h3>
+  <p>A $3 million settlement covers 6,000 employees for unpaid overtime. After 30% fees ($900,000) and $150,000 in costs, $1.95 million remains. The employer&rsquo;s payroll records identify everyone and payments go out automatically, pro rata to each worker&rsquo;s hours. A worker with an average share receives $325; one with twice the average hours receives $650. Because these are back wages, the employer withholds taxes as it would from a paycheck.</p>
+  <h3>Example 3 &mdash; Why the headline number misleads</h3>
+  <p>A $100 million data breach settlement sounds large, but if it covers 100 million people and most of the fund is set aside for credit monitoring and documented out-of-pocket losses, a class member with no documented loss may be offered monitoring or a small cash alternative instead of a meaningful check.</p>
+
+  <h2>What pushes your payment up or down</h2>
+  <ul>
+    <li><strong>Fewer claimants:</strong> in a common fund, every person who does not file increases everyone else&rsquo;s share.</li>
+    <li><strong>Documentation:</strong> receipts, statements, and records often move you into a higher tier.</li>
+    <li><strong>Settlement structure:</strong> in a claims-made settlement, your payment is usually fixed and unclaimed money returns to the defendant.</li>
+    <li><strong>Pro rata caps:</strong> if too many people file, payments may be reduced proportionally; if too few file, some settlements increase payments up to a cap.</li>
+    <li><strong>Timing:</strong> appeals by objectors can delay payment by a year or more after final approval.</li>
+  </ul>
+
+  <h2>Are class action payments taxable?</h2>
+  <p>It depends on what the payment replaces. The IRS explains that a payment is generally taxed the same way as the item it compensates for: a refund of part of what you paid for a product is usually not income, while back wages in an employment settlement are taxable wages. Check IRS Publication 4345 and, for larger amounts, a tax professional.</p>
+
+  <h2>How to find the payout for your settlement</h2>
+  <p>The court-approved notice names a settlement administrator and an official website. That site will list the claim deadline, the estimated or maximum payment per claim, the allocation plan, and later the final approval and payment status. Only use the website listed in the notice or in the court&rsquo;s order &mdash; look-alike &ldquo;settlement&rdquo; sites exist. Class counsel, also named in the notice, can answer questions at no cost to you.</p>
+
+  <p>Related: <a href="/">settlement share calculator</a> &middot; <a href="/guides/how-class-action-settlements-work/">how class action settlements work</a> &middot; <a href="/guides/filing-a-class-action-claim/">filing a claim</a> &middot; <a href="/methodology/">methodology</a></p>
+</BaseLayout>
