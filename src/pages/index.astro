@@ -2,12 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadCapture from '../components/LeadCapture.astro';
 const title = 'Class Action Settlement Calculator | classactionsettlementcalc.com';
-const description = 'Estimate your individual share of a class action settlement. Enter total settlement amount, class size, claim type, and whether you are a named plaintiff. Free, informational.';
+const description = 'Estimate your payout per person from a class action settlement. Worked examples, how claims rates change your share, and coupon, claims-made, and common-fund settlements explained.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Class Action Settlement Calculator</h1>
-  <p><em>Reviewed by our editorial team. Updated May 2026.</em></p>
-  <p>Class action settlements distribute funds to thousands or millions of class members according to a plan of allocation approved by the court. Individual payouts depend on total settlement size, class size, the allocation formula, claim type, and whether you are a named class representative. This calculator provides a rough estimate of individual recovery based on published class action settlement administration data.</p>
+  <p><em>Published by The Click Lab Agency LLC. Last reviewed September 2026. Not legal advice.</em></p>
+  <p>Class action settlements distribute funds to thousands or millions of class members according to a plan of allocation approved by the court. Individual payouts depend on total settlement size, class size, the allocation formula, claim type, and whether you are a named class representative. This calculator provides a rough estimate of individual recovery from the numbers in your settlement notice and a few stated assumptions, explained on the <a href="/methodology/">methodology page</a>. There is no reliable &ldquo;average payout per person&rdquo; across all class actions; the examples below show why.</p>
   <h2>Run the estimate</h2>
   <form id="calc" novalidate>
     <label for="settlement">Total settlement amount (USD)</label>
@@ -30,18 +30,51 @@ const description = 'Estimate your individual share of a class action settlement
     <input id="claims-rate" type="number" value="5" min="1" max="100" />
     <button type="submit">Estimate my share</button>
   </form>
-  
-
-  <LeadCapture caseType="class_action" caseTypeLabel="Class Action" />
-<p id="result" aria-live="polite"></p>
+  <p id="result" aria-live="polite"></p>
   <h2>How class action distributions work</h2>
   <p>Courts approve a plan of allocation specifying how the net settlement fund (after attorneys&rsquo; fees, costs, and administration) is divided. Common approaches: equal shares per claiming member, pro-rata based on documented individual harm, tiered payments based on injury severity, and &mdash; in some consumer cases &mdash; cy pres distributions to charities when individual claims are too small to process economically.</p>
   <p>Attorney fees typically consume 25&ndash;33% of the fund. Administration costs (notice, claims processing) add 5&ndash;15%. Named plaintiffs may receive incentive awards of $5,000&ndash;$25,000 for their role in representing the class. See the <a href="/methodology/">full methodology</a> for how each input maps to a share estimate.</p>
   <h2>Why claims rates matter so much</h2>
-  <p>Most class action settlements see claims rates of 1&ndash;10% for consumer cases. When fewer members file claims, the net fund is divided among fewer claimants — each share grows. A 5% claims rate on a 50,000-member class means roughly 2,500 claimants sharing the net fund. Securities cases typically have much higher claims rates (30–60%) because institutional investors file systematically.</p>
+  <p>Claims rates in consumer cases are low: a 2019 Federal Trade Commission staff study of 149 consumer class action settlements found a median claims rate of 9% and a weighted average of 4%. When fewer members file claims, the net fund is divided among fewer claimants — each share grows. A 5% claims rate on a 50,000-member class means roughly 2,500 claimants sharing the net fund. Cases where most of the money goes to institutions, such as securities settlements, tend to see higher participation because institutional investors file claims routinely.</p>
   <p>If you received a class action notice, filing a claim is almost always the right decision — the cost is minimal and the upside is a real payment. Missing the claims deadline forfeits your share.</p>
+    <h2>Settlement types and what they mean for your payout</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <thead><tr><th>Settlement type</th><th>How it works</th><th>What it means for you</th></tr></thead>
+    <tbody>
+      <tr><td>Common fund</td><td>The defendant pays a fixed amount; fees and costs come out first and the rest is divided among valid claims</td><td>The fewer people who file, the larger each share. Filing a claim almost always pays.</td></tr>
+      <tr><td>Claims-made</td><td>The defendant pays only for claims actually submitted, often up to a fixed amount per claim; unclaimed money stays with the defendant</td><td>Your payment is usually a set figure that does not grow when others fail to file.</td></tr>
+      <tr><td>Pro rata or tiered</td><td>Shares are sized to documented losses, or members are sorted into tiers (for example, those with receipts or out-of-pocket costs)</td><td>Documentation can move you into a higher tier; keep receipts, statements, and account records.</td></tr>
+      <tr><td>Coupon or voucher</td><td>Class members get credits toward future purchases from the defendant</td><td>Worth face value only if you would buy from that company anyway. Under the Class Action Fairness Act, attorney fees tied to coupons are based on the coupons actually redeemed.</td></tr>
+      <tr><td>Automatic payment</td><td>The defendant&rsquo;s records identify class members and payments go out without a claim form</td><td>Keep your address current with the settlement administrator; you may not need to do anything else.</td></tr>
+      <tr><td>Cy pres</td><td>Money that cannot practically be distributed goes to a charity or nonprofit related to the case</td><td>Usually a small residual, but in very large classes with tiny losses it can replace individual payments.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Worked examples</h2>
+  <p>These use the same arithmetic as the calculator, with the fees and costs stated separately so you can see where the money goes.</p>
+
+  <h3>Example 1 &mdash; A consumer common fund at a typical claims rate</h3>
+  <p>A $10 million settlement covers 1,000,000 customers charged a hidden fee. The court awards class counsel 25% ($2.5 million) plus $300,000 in costs, and notice and administration cost $500,000, leaving a net fund of $6.7 million. If 4% of the class files (40,000 claims), each valid claim is worth about $167.50. If only 1% files, each is worth $670; if 9% files, about $74.</p>
+
+  <h3>Example 2 &mdash; Claims-made with a fixed payment</h3>
+  <p>A software company agrees to pay $25 for each valid claim, up to $5 million in total, and separately pays attorney fees. Two percent of a 2,000,000-member class files, or 40,000 claims costing $1 million. Each claimant gets $25 regardless of how few others filed, and the $4 million that was never claimed stays with the company. The same case structured as a common fund would have paid each claimant far more.</p>
+
+  <h3>Example 3 &mdash; Coupon settlement</h3>
+  <p>A retailer settles a pricing case by issuing each class member a $20 voucher good for one year on purchases over $50. For a shopper who was going to spend $50 there anyway, the voucher is worth close to $20. For someone who will never shop there again, it is worth nothing. That gap is why courts scrutinize coupon settlements more closely and why the calculator discounts them.</p>
+
   <h2>Where to learn more</h2>
   <p>See <a href="/guides/how-class-action-settlements-work/">how class action settlements work</a>, <a href="/guides/types-of-class-action-cases/">types of class action cases</a>, <a href="/guides/filing-a-class-action-claim/">filing a class action claim</a>, and <a href="/guides/class-action-misconceptions/">common class action misconceptions</a>. The <a href="/faq/">FAQ</a> covers opt-outs, taxes, cy pres, and coupon settlements in detail.</p>
+
+  <h2>What this calculator does not do</h2>
+  <p>It does not know the terms of your settlement; the notice and the settlement website do. It assumes 33% of the gross fund goes to fees and costs, which is a round planning figure, not a rule &mdash; courts set fees case by case, and administration costs vary. The tier multiplier (2.5&times;), the coupon discount (0.3&times;), and the incentive-award estimate are publisher assumptions for illustration, not averages from settlement data. It does not model claims-made caps, cy pres awards, taxes, or delays from appeals and objections. Named plaintiffs should note that incentive awards are not allowed at all in some federal circuits, including the Eleventh (<em>Johnson v. NPAS Solutions</em>, 975 F.3d 1244 (2020)).</p>
+
+  <h2>Where to get help</h2>
+  <p>Your settlement notice names a settlement administrator and a website; that is where you file a claim, check deadlines, update your address, and find the claim form. Only use the website listed in the court-approved notice &mdash; scam &ldquo;settlement&rdquo; sites exist. Class counsel, listed in the notice, represent you at no charge and can answer questions about the settlement. If you are thinking about opting out to bring your own case, or you believe you have a claim that no class action covers yet, an attorney can advise you. If you would like The Click Lab to pass your details to an attorney in its network, the optional form below does that; it is a disclosed referral product, and our <a href="/privacy/">privacy policy</a> explains exactly what is shared.</p>
+
+  <LeadCapture caseType="class_action" caseTypeLabel="Class Action" />
+
   <script>
     document.getElementById('calc').addEventListener('submit', e => {
       e.preventDefault();
